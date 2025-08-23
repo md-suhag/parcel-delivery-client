@@ -77,7 +77,10 @@ export default function Navbar() {
           </Popover>
           {/* Main nav */}
           <div className="flex items-center gap-6">
-            <Link to="/" className="text-primary hover:text-primary/90">
+            <Link
+              to="/"
+              className="text-primary font-semibold hover:text-primary/90"
+            >
               ParcelDelivery
             </Link>
             {/* Navigation menu */}
