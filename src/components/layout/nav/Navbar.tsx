@@ -11,8 +11,9 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Link } from "react-router";
-import { ModeToggle } from "./ModeToggler";
+import { ModeToggle } from "../ModeToggler";
 import { useUserInfoQuery } from "@/redux/features/auth/authApi";
+import UserMenu from "./UserMenu";
 
 const navigationLinks = [
   { href: "/", label: "Home" },
@@ -107,7 +108,7 @@ export default function Navbar() {
         {/* Right side */}
         <div className="flex items-center gap-2">
           <ModeToggle />
-          {data?.data?.phone && <Button className="text-sm">Log out</Button>}
+          {data?.data?.phone && <UserMenu />}
           {!data?.data?.phone && (
             <Button asChild size="sm" className="text-sm">
               <Link to="/login">Login</Link>
