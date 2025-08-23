@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/popover";
 import { Link } from "react-router";
 import { ModeToggle } from "./ModeToggler";
+import { useUserInfoQuery } from "@/redux/features/auth/authApi";
 
 const navigationLinks = [
   { href: "/", label: "Home" },
@@ -22,9 +23,11 @@ const navigationLinks = [
 ];
 
 export default function Navbar() {
+  const { data } = useUserInfoQuery(undefined);
+
   return (
     <header className="border-b px-4 md:px-6">
-      <div className="container mx-auto px-4 flex h-16 items-center justify-between gap-4">
+      <div className="container mx-auto md:px-4  flex h-16 items-center justify-between gap-4">
         {/* Left side */}
         <div className="flex items-center gap-2">
           {/* Mobile menu trigger */}
@@ -80,7 +83,7 @@ export default function Navbar() {
           <div className="flex items-center gap-6">
             <Link
               to="/"
-              className="text-primary font-semibold hover:text-primary/90"
+              className="text-primary text-sm sm:text-base font-semibold hover:text-primary/90"
             >
               ParcelDelivery
             </Link>
@@ -104,9 +107,12 @@ export default function Navbar() {
         {/* Right side */}
         <div className="flex items-center gap-2">
           <ModeToggle />
-          <Button asChild size="sm" className="text-sm">
-            <Link to="/login">Login</Link>
-          </Button>
+          {data?.data?.phone && <Button className="text-sm">Log out</Button>}
+          {!data?.data?.phone && (
+            <Button asChild size="sm" className="text-sm">
+              <Link to="/login">Login</Link>
+            </Button>
+          )}
         </div>
       </div>
     </header>

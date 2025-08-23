@@ -43,7 +43,7 @@ export default function Footer() {
               <div className="flex items-center gap-2 lg:justify-start text-2xl font-bold">
                 <Link to="/"> Parcel Delivery</Link>
               </div>
-              <p className="mt-2 font-semibold">{tagline}</p>
+              <p className="mt-2 text-accent-foreground ">{tagline}</p>
             </div>
             {menuItems.map((section, sectionIdx) => (
               <div key={sectionIdx}>
