@@ -14,6 +14,7 @@ import { Link } from "react-router";
 import { ModeToggle } from "../ModeToggler";
 import { useUserInfoQuery } from "@/redux/features/auth/authApi";
 import UserMenu from "./UserMenu";
+import logoImg from "@/assets/logo.png";
 
 const navigationLinks = [
   { href: "/", label: "Home" },
@@ -86,7 +87,7 @@ export default function Navbar() {
               to="/"
               className="text-primary text-sm sm:text-base font-semibold hover:text-primary/90"
             >
-              ParcelDelivery
+              <img className="w-[30px] sm:w-[40px]" src={logoImg} alt="logo" />
             </Link>
             {/* Navigation menu */}
             <NavigationMenu className="max-md:hidden">
@@ -108,7 +109,7 @@ export default function Navbar() {
         {/* Right side */}
         <div className="flex items-center gap-2">
           <ModeToggle />
-          {data?.data?.phone && <UserMenu />}
+          {data?.data?.phone && <UserMenu role={data?.data?.role} />}
           {!data?.data?.phone && (
             <Button asChild size="sm" className="text-sm">
               <Link to="/login">Login</Link>

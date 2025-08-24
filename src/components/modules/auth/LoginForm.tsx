@@ -16,6 +16,9 @@ import { toast } from "sonner";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Password from "@/components/ui/Password";
+import { useAppDispatch } from "@/redux/hook";
+import { saveToAuth } from "@/redux/features/auth/authSlice";
+import logoImg from "@/assets/logo.png";
 
 const loginSchema = z.object({
   phone: z.string().regex(/^01\d{9}$/, "Invalid phone number"),
@@ -26,6 +29,7 @@ export function LoginForm({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
@@ -41,7 +45,9 @@ export function LoginForm({
 
       if (res.success) {
         toast.success("Logged in successfully");
-        navigate("/");
+        dispatch(saveToAuth(res.data.user));
+        const role = res.data.user.role.toLowerCase();
+        navigate(`/dashboard/${role}`);
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
@@ -55,9 +61,10 @@ export function LoginForm({
       {...props}
     >
       <div className="flex flex-col items-center gap-2 text-center">
-        <p className="text-lg text-primary ">
-          <Link to="/">ParcelDelivery</Link>
-        </p>
+        <Link to="/">
+          <img className="w-[50px] mb-3" src={logoImg} alt="logo" />
+        </Link>
+
         <h1 className="text-2xl font-bold ">Login to your account</h1>
         <p className="text-balance text-sm text-muted-foreground">
           Enter your email below to login to your account

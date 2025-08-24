@@ -24,8 +24,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
 import Password from "@/components/ui/Password";
+import logoImg from "@/assets/logo.png";
 
 const registerSchema = z.object({
   name: z
@@ -91,9 +91,9 @@ const RegisterForm = ({
       {...props}
     >
       <div className="flex flex-col items-center gap-2 text-center">
-        <p className="text-lg text-primary ">
-          <Link to="/">ParcelDelivery</Link>
-        </p>
+        <Link to="/">
+          <img className="w-[50px] mb-3" src={logoImg} alt="logo" />
+        </Link>
         <h1 className="text-2xl font-bold ">Register your account</h1>
         <p className="text-balance text-sm text-muted-foreground">
           Enter your details below to register your account

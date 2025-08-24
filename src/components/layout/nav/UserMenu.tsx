@@ -15,8 +15,10 @@ import userImg from "@/assets/user.jpeg";
 import { authApi, useLogoutMutation } from "@/redux/features/auth/authApi";
 import { toast } from "sonner";
 import { useAppDispatch } from "@/redux/hook";
+import { Link } from "react-router";
+import type { TRole } from "@/types";
 
-export default function UserMenu() {
+export default function UserMenu({ role }: { role: TRole }) {
   const [logOut] = useLogoutMutation();
   const dispatch = useAppDispatch();
   const handleLogout = async () => {
@@ -54,13 +56,16 @@ export default function UserMenu() {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <LayoutDashboard
-              size={16}
-              className="opacity-60"
-              aria-hidden="true"
-            />
-            <span>Dashboard</span>
+          <DropdownMenuItem asChild>
+            <Link to={`/dashboard/${role.toLowerCase()}`}>
+              {" "}
+              <LayoutDashboard
+                size={16}
+                className="opacity-60"
+                aria-hidden="true"
+              />
+              <span>Dashboard</span>
+            </Link>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
