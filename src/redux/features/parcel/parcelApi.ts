@@ -9,6 +9,7 @@ const parcelApi = baseApi.injectEndpoints({
         method: "POST",
         data: payload,
       }),
+      invalidatesTags: ["SenderParcels"],
     }),
   }),
 });

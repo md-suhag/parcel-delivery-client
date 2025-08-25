@@ -1,43 +1,7 @@
-import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import type { ColumnDef } from "@tanstack/react-table";
-import { MoreHorizontal } from "lucide-react";
-
-export interface IParcel {
-  _id: string;
-  type: string;
-  weight: number;
-  sender: string;
-  receiver: IReceiver;
-  pickingAddress: string;
-  status: string;
-  isBlocked: boolean;
-  statusLogs: IStatusLog[];
-  createdAt: Date;
-  updatedAt: Date;
-  trackingId: string;
-  deliveryFee: number;
-  deliveryDate: Date;
-}
-
-export interface IReceiver {
-  name: string;
-  phone: string;
-  address: string;
-}
-
-export interface IStatusLog {
-  location: string;
-  time: Date;
-  status: string;
-  note: string;
-}
+import ParcelActionsCell from "../ParcelActionsCell";
+import type { IParcel } from "@/types";
 
 export const getSenderParcelsColumns: ColumnDef<IParcel>[] = [
   {
@@ -78,23 +42,6 @@ export const getSenderParcelsColumns: ColumnDef<IParcel>[] = [
   {
     id: "actions",
     header: "Actions",
-    cell: ({ row }) => {
-      return (
-        <>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="h-8 w-8 p-0">
-                <span className="sr-only">Open menu</span>
-                <MoreHorizontal className="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem>View Details</DropdownMenuItem>
-              <DropdownMenuItem>Cancel</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </>
-      );
-    },
+    cell: ({ row }) => <ParcelActionsCell parcel={row.original} />,
   },
 ];

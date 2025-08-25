@@ -3,7 +3,7 @@ import { getSenderParcelsColumns } from "@/components/modules/table/tableColumns
 import { useGetSenderParcelsQuery } from "@/redux/features/sender/senderApi";
 
 const GetSenderParcels = () => {
-  const { data, isLoading } = useGetSenderParcelsQuery(undefined);
+  const { data, isLoading } = useGetSenderParcelsQuery(null);
   return (
     <section className="min-h-screen p-2">
       <div className="max-w-5xl mx-auto">

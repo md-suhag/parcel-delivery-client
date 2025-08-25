@@ -1,9 +1,3 @@
-export interface ICreateParcel {
-  type: "DOCUMENT" | "REGULAR";
-  weight: number;
-  receiver: IParcelReceiver;
-  pickingAddress: string;
-}
 interface IParcelReceiver {
   name: string;
   phone: string;
@@ -33,4 +27,11 @@ export interface StatusLog {
   time: Date;
   status: string;
   note?: string;
+}
+
+export interface ICreateParcel {
+  type: "DOCUMENT" | "REGULAR";
+  weight: number;
+  receiver: IParcelReceiver;
+  pickingAddress: string;
 }
