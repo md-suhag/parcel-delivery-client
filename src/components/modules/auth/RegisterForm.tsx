@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/select";
 import Password from "@/components/ui/Password";
 import logoImg from "@/assets/logo.png";
+import type { IErrorResponse } from "@/types";
 
 const registerSchema = z.object({
   name: z
@@ -79,9 +80,8 @@ const RegisterForm = ({
         toast.success("Registered successfully");
         navigate("/login");
       }
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (err: any) {
-      toast.error(err.data.message);
+    } catch (err: unknown) {
+      toast.error((err as IErrorResponse).data?.message);
     }
   };
 

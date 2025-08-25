@@ -1,12 +1,13 @@
 import { baseApi } from "@/redux/api/baseApi";
+import type { ILogin, IRegister, IResponse, IUser } from "@/types";
 
 export const authApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    login: builder.mutation({
-      query: (userInfo) => ({
+    login: builder.mutation<IResponse<IUser>, ILogin>({
+      query: (payload) => ({
         url: "/auth/login",
         method: "POST",
-        data: userInfo,
+        data: payload,
       }),
     }),
     logout: builder.mutation({
@@ -15,14 +16,14 @@ export const authApi = baseApi.injectEndpoints({
         method: "POST",
       }),
     }),
-    register: builder.mutation({
+    register: builder.mutation<IResponse<IUser>, IRegister>({
       query: (payload) => ({
         url: "/auth/register",
         method: "POST",
         data: payload,
       }),
     }),
-    userInfo: builder.query({
+    userInfo: builder.query<IResponse<IUser>, undefined>({
       query: () => ({
         url: "/user/me",
         method: "GET",

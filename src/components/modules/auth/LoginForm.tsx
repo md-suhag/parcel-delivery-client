@@ -19,6 +19,7 @@ import Password from "@/components/ui/Password";
 import { useAppDispatch } from "@/redux/hook";
 import { saveToAuth } from "@/redux/features/auth/authSlice";
 import logoImg from "@/assets/logo.png";
+import type { IErrorResponse } from "@/types";
 
 const loginSchema = z.object({
   phone: z.string().regex(/^01\d{9}$/, "Invalid phone number"),
@@ -45,13 +46,12 @@ export function LoginForm({
 
       if (res.success) {
         toast.success("Logged in successfully");
-        dispatch(saveToAuth(res.data.user));
-        const role = res.data.user.role.toLowerCase();
+        dispatch(saveToAuth(res.data));
+        const role = res.data.role.toLowerCase();
         navigate(`/dashboard/${role}`);
       }
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (err: any) {
-      toast.error(err.data.message);
+    } catch (err: unknown) {
+      toast.error((err as IErrorResponse).data?.message);
     }
   };
 

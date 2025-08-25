@@ -21,6 +21,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
 import { useCrateParcelMutation } from "@/redux/features/parcel/parcelApi";
+import type { IErrorResponse } from "@/types";
 
 const createParcelSchma = z.object({
   type: z.enum(["DOCUMENT", "REGULAR"], {
@@ -72,10 +73,10 @@ export function CreateParcelForm({
 
       if (res.success) {
         toast.success("Parcel created successfully");
+        form.reset();
       }
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (err: any) {
-      toast.error(err.data.message);
+    } catch (err: unknown) {
+      toast.error((err as IErrorResponse).data?.message);
     }
   };
 
@@ -226,7 +227,7 @@ export function CreateParcelForm({
 
             <div className="flex justify-end">
               <Button disabled={isLoading} type="submit">
-                Create
+                {isLoading ? "Creating" : "Create"}
               </Button>
             </div>
           </form>
