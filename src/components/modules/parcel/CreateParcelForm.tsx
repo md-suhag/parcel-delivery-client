@@ -42,7 +42,7 @@ export function CreateParcelForm({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
-  const [create] = useCrateParcelMutation();
+  const [create, { isLoading }] = useCrateParcelMutation();
   const form = useForm<z.infer<typeof createParcelSchma>>({
     resolver: zodResolver(createParcelSchma),
     defaultValues: {
@@ -224,9 +224,11 @@ export function CreateParcelForm({
               )}
             />
 
-            <Button type="submit" className="w-full">
-              Create
-            </Button>
+            <div className="flex justify-end">
+              <Button disabled={isLoading} type="submit">
+                Create
+              </Button>
+            </div>
           </form>
         </Form>
       </div>

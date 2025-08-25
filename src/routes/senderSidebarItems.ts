@@ -1,3 +1,4 @@
+import GetSenderParcels from "@/pages/Dashboard/Sender/GetSenderParcels";
 import type { ISidebarItem } from "@/types";
 import { lazy } from "react";
 const Analytics = lazy(() => import("@/pages/Dashboard/Sender/Analytics"));
@@ -23,6 +24,11 @@ export const senderSidebarItems: ISidebarItem[] = [
         title: "Create Parcel",
         url: "/dashboard/sender/create-parcel",
         component: CreateParcel,
+      },
+      {
+        title: "Get All Parcels",
+        url: "/dashboard/sender/parcels",
+        component: GetSenderParcels,
       },
     ],
   },
