@@ -1,3 +1,4 @@
+import ReceivedParcel from "@/pages/Dashboard/Receiver/ReceivedParcel";
 import type { ISidebarItem } from "@/types";
 import { lazy } from "react";
 const Analytics = lazy(() => import("@/pages/Dashboard/Receiver/Analytics"));
@@ -23,6 +24,11 @@ export const receiverSidebarItems: ISidebarItem[] = [
         title: "Incomming Parcel",
         url: "/dashboard/receiver/incomming-parcel",
         component: IncommingParcel,
+      },
+      {
+        title: "Received Parcel",
+        url: "/dashboard/receiver/received-parcel",
+        component: ReceivedParcel,
       },
     ],
   },
