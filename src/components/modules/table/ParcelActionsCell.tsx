@@ -14,6 +14,7 @@ import { useCancelParcelMutation } from "@/redux/features/sender/senderApi";
 import type { IErrorResponse, IParcel } from "@/types";
 import { CancelParcelConfirmation } from "../parcel/CancelParcelConfirmation";
 import { useState } from "react";
+import { ParcelDetailsDialog } from "../parcel/ParcelDetailsDialog";
 
 const ParcelActionsCell = ({ parcel }: { parcel: IParcel }) => {
   const [open, setOpen] = useState(false);
@@ -42,7 +43,9 @@ const ParcelActionsCell = ({ parcel }: { parcel: IParcel }) => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem>View Details</DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <ParcelDetailsDialog parcel={parcel} />
+        </DropdownMenuItem>
         <DropdownMenuItem asChild>
           <CancelParcelConfirmation onConfirm={handleCancel}>
             <Button variant="ghost">Cancel Parcel</Button>
