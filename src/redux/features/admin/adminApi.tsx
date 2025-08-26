@@ -31,6 +31,20 @@ const adminApi = baseApi.injectEndpoints({
       }),
       providesTags: ["AllUsers"],
     }),
+    blockUser: builder.mutation<IResponse<Partial<IParcel>>, string>({
+      query: (id) => ({
+        url: `/admin/users/${id}/block`,
+        method: "PATCH",
+      }),
+      invalidatesTags: ["AllUsers"],
+    }),
+    unBlockUser: builder.mutation<IResponse<Partial<IParcel>>, string>({
+      query: (id) => ({
+        url: `/admin/users/${id}/unblock`,
+        method: "PATCH",
+      }),
+      invalidatesTags: ["AllUsers"],
+    }),
   }),
 });
 
@@ -39,4 +53,6 @@ export const {
   useGetAllUsersQuery,
   useBlockParcelMutation,
   useUnBlockParcelMutation,
+  useBlockUserMutation,
+  useUnBlockUserMutation,
 } = adminApi;
