@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import type { ColumnDef } from "@tanstack/react-table";
 import type { IParcel } from "@/types";
+import ConfirmParcelCell from "../ConfirmParcelCell";
 
 export const getIncommingParcelsColumns: ColumnDef<IParcel>[] = [
   {
@@ -47,5 +48,11 @@ export const getIncommingParcelsColumns: ColumnDef<IParcel>[] = [
 
       return <span className={badgeClass}>{status.toLocaleLowerCase()}</span>;
     },
+  },
+
+  {
+    id: "confirm",
+    header: "Confirm Delivery",
+    cell: ({ row }) => <ConfirmParcelCell parcel={row.original} />,
   },
 ];

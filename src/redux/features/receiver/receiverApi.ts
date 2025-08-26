@@ -12,7 +12,7 @@ const receiverApi = baseApi.injectEndpoints({
     }),
     getReceivedParcels: builder.query<IResponse<IParcel[]>, null>({
       query: () => ({
-        url: `/parcels/history`,
+        url: `/parcels/delivery-history`,
         method: "GET",
       }),
       providesTags: ["Received"],
@@ -22,7 +22,7 @@ const receiverApi = baseApi.injectEndpoints({
         url: `/parcels/${id}/confirm`,
         method: "PATCH",
       }),
-      invalidatesTags: ["Received"],
+      invalidatesTags: ["Received", "Incomming"],
     }),
   }),
 });
