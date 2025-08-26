@@ -35,3 +35,8 @@ export interface ICreateParcel {
   receiver: IParcelReceiver;
   pickingAddress: string;
 }
+
+export interface IUpdateParcel {
+  id: string;
+  status: string;
+}

@@ -1,5 +1,5 @@
 import { baseApi } from "@/redux/api/baseApi";
-import type { IParcel, IResponse, IUser } from "@/types";
+import type { IParcel, IResponse, IUpdateParcel, IUser } from "@/types";
 
 const adminApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -21,6 +21,17 @@ const adminApi = baseApi.injectEndpoints({
       query: (id) => ({
         url: `/admin/parcels/${id}/unblock`,
         method: "PATCH",
+      }),
+      invalidatesTags: ["AllParcels"],
+    }),
+    updateParcelStaus: builder.mutation<
+      IResponse<Partial<IParcel>>,
+      IUpdateParcel
+    >({
+      query: (payload) => ({
+        url: `/admin/parcels/${payload.id}/status`,
+        method: "PATCH",
+        data: payload,
       }),
       invalidatesTags: ["AllParcels"],
     }),
@@ -53,6 +64,7 @@ export const {
   useGetAllUsersQuery,
   useBlockParcelMutation,
   useUnBlockParcelMutation,
+  useUpdateParcelStausMutation,
   useBlockUserMutation,
   useUnBlockUserMutation,
 } = adminApi;

@@ -27,7 +27,7 @@ const createParcelSchma = z.object({
   type: z.enum(["DOCUMENT", "REGULAR"], {
     message: "Select a valid parcel type",
   }),
-  weight: z.string().regex(/^\d+$/, "Weight must be a positive number"),
+  weight: z.string().regex(/^\d+(\.\d+)?$/, "Weight must be a positive number"),
   receiverName: z.string().min(1, { message: "Receiver name is required" }),
   receiverPhone: z.string().regex(/^01\d{9}$/, {
     message: "Phone number must be valid for Bangladesh. Format: 01XXXXXXXXX",

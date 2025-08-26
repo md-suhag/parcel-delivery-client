@@ -13,7 +13,6 @@ import { cn } from "@/lib/utils";
 import type { IParcel } from "@/types";
 
 export function ParcelDetailsDialog({ parcel }: { parcel: IParcel }) {
-  console.log(parcel);
   return (
     <Dialog>
       <DialogTrigger asChild>

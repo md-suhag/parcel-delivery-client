@@ -15,6 +15,7 @@ import {
   useUnBlockParcelMutation,
 } from "@/redux/features/admin/adminApi";
 import { toast } from "sonner";
+import UpdateParcelStatusDialog from "../parcel/Update ParcelStatusDialog";
 
 const AllParcelActionsCell = ({ parcel }: { parcel: IParcel }) => {
   const [open, setOpen] = useState(false);
@@ -61,6 +62,9 @@ const AllParcelActionsCell = ({ parcel }: { parcel: IParcel }) => {
       <DropdownMenuContent align="end">
         <DropdownMenuItem asChild>
           <ParcelDetailsDialog parcel={parcel} />
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <UpdateParcelStatusDialog status={parcel.status} id={parcel._id} />
         </DropdownMenuItem>
         {!parcel.isBlocked && (
           <DropdownMenuItem asChild>

@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-export type { ICreateParcel, IParcel } from "./parcel.type";
+export type { ICreateParcel, IParcel, IUpdateParcel } from "./parcel.type";
 export type { IUser, ILogin, IRegister } from "./auth.type";
 
 export type TRole = "ADMIN" | "SENDER" | "RECEIVER" | "RIDER";
