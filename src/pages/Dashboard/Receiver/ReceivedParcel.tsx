@@ -7,14 +7,13 @@ const ReceivedParcel = () => {
   return (
     <section className="min-h-screen p-2">
       <div className="max-w-5xl mx-auto">
-        <h2 className=" text-3xl mb-4">All Parcels</h2>
-        {!isLoading && (
-          <DashboardTable
-            data={data?.data || []}
-            columns={getReceivedParcelsColumns}
-            isLoading={isLoading}
-          />
-        )}
+        <h2 className=" text-3xl mb-4">Received Parcels</h2>
+
+        <DashboardTable
+          data={data?.data || []}
+          columns={getReceivedParcelsColumns}
+          isLoading={isLoading}
+        />
       </div>
     </section>
   );
