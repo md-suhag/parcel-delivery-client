@@ -7,7 +7,7 @@ const GetSenderParcels = () => {
   return (
     <section className="min-h-screen p-2">
       <div className="max-w-5xl mx-auto">
-        <h2 className=" text-3xl mb-4">All Parcels</h2>
+        <h2 className=" text-3xl mb-4">All of My Parcels</h2>
 
         <DashboardTable
           data={data?.data || []}

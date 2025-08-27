@@ -21,7 +21,7 @@ export interface ISidebarItem {
     component: ComponentType;
   }[];
 }
-interface IMeta {
+export interface IMeta {
   page: number;
   limit: number;
   total: number;

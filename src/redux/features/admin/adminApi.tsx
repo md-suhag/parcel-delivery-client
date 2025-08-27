@@ -3,10 +3,11 @@ import type { IParcel, IResponse, IUpdateParcel, IUser } from "@/types";
 
 const adminApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getAllParcels: builder.query<IResponse<IParcel[]>, null>({
-      query: () => ({
+    getAllParcels: builder.query<IResponse<IParcel[]>, unknown>({
+      query: (params) => ({
         url: "/admin/parcels",
         method: "GET",
+        params,
       }),
       providesTags: ["AllParcels"],
     }),
@@ -35,10 +36,11 @@ const adminApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["AllParcels"],
     }),
-    getAllUsers: builder.query<IResponse<IUser[]>, null>({
-      query: () => ({
+    getAllUsers: builder.query<IResponse<IUser[]>, unknown>({
+      query: (params) => ({
         url: "/admin/users",
         method: "GET",
+        params,
       }),
       providesTags: ["AllUsers"],
     }),
