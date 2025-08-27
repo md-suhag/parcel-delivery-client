@@ -117,11 +117,7 @@ const Contact = () => {
                 />
               </CardContent>
               <CardFooter className="justify-end">
-                <Button
-                  type="submit"
-                  className="bg-primary text-white hover:bg-primary/90"
-                  disabled={form.formState.isSubmitting}
-                >
+                <Button type="submit" disabled={form.formState.isSubmitting}>
                   Submit
                 </Button>
               </CardFooter>
