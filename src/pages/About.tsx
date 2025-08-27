@@ -56,14 +56,14 @@ const About = () => {
       <h1 className="text-center text-3xl text-primary my-5 font-semibold">
         About Us
       </h1>
-      <p className="text-center text-lg text-gray-600 mb-12">
+      <p className="text-center text-lg text-muted-foreground mb-12">
         Delivering Trust, One Parcel at a Time
       </p>
 
       <section className="mb-16">
         <h2 className="text-2xl font-bold text-center mb-6">Our Mission</h2>
         <Card className="max-w-3xl mx-auto">
-          <CardContent className="text-gray-600">
+          <CardContent className="text-muted-foreground">
             our mission is to provide fast, reliable, and sustainable parcel
             delivery solutions that connect people and businesses seamlessly. We
             strive to redefine logistics by prioritizing customer satisfaction,
@@ -81,7 +81,7 @@ const About = () => {
               <CardHeader className="text-lg font-semibold">
                 {service.title}
               </CardHeader>
-              <CardContent className="text-gray-600">
+              <CardContent className="text-muted-foreground">
                 {service.desc}
               </CardContent>
             </Card>
@@ -99,7 +99,7 @@ const About = () => {
               </CardHeader>
               <CardContent>
                 <p className="font-medium text-primary">{member.role}</p>
-                <p className="mt-2 text-gray-600">{member.desc}</p>
+                <p className="mt-2 text-muted-foreground">{member.desc}</p>
               </CardContent>
             </Card>
           ))}
