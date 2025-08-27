@@ -14,7 +14,7 @@ const parcelApi = baseApi.injectEndpoints({
         method: "POST",
         data: payload,
       }),
-      invalidatesTags: ["SenderParcels"],
+      invalidatesTags: ["SenderParcels", "AllParcels"],
     }),
     trackParcel: builder.query<IResponse<IParcelTrackData>, string>({
       query: (trackId) => ({

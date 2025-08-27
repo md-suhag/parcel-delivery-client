@@ -4,6 +4,9 @@ export type {
   IParcel,
   IUpdateParcel,
   IParcelTrackData,
+  IParcelStats,
+  ITotalParcelByStatus,
+  ITotalParcelByParcelType,
 } from "./parcel.type";
 export type { IUser, ILogin, IRegister } from "./auth.type";
 

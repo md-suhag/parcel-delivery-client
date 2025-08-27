@@ -15,7 +15,7 @@ const senderApi = baseApi.injectEndpoints({
         url: `/parcels/${id}/cancel`,
         method: "PATCH",
       }),
-      invalidatesTags: ["SenderParcels"],
+      invalidatesTags: ["SenderParcels", "AllParcels"],
     }),
   }),
 });

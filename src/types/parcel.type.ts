@@ -45,3 +45,26 @@ export type IParcelTrackData = Pick<
   IParcel,
   "_id" | "receiver" | "isBlocked" | "statusLogs"
 >;
+
+export interface IParcelStats {
+  totalParcel: number;
+  totalParcelByStatus: ITotalParcelByStatus[];
+  totalParcelByParcelType: ITotalParcelByParcelType[];
+  totalDeliveredParcelByMonths: ITotalDeliveredParcelByMonth[];
+}
+
+export interface ITotalDeliveredParcelByMonth {
+  delivered: number;
+  year: number;
+  month: string;
+}
+
+export interface ITotalParcelByParcelType {
+  count: number;
+  type: string;
+}
+
+export interface ITotalParcelByStatus {
+  count: number;
+  status: string;
+}
