@@ -17,6 +17,7 @@ import Unauthorized from "@/pages/Unauthorized";
 import NotFound from "@/pages/NotFound";
 import { senderSidebarItems } from "./senderSidebarItems";
 import { receiverSidebarItems } from "./receiverSidebarItem";
+import TrackParcel from "@/pages/TrackParcel";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
       {
         Component: Features,
         path: "/features",
+      },
+      {
+        Component: TrackParcel,
+        path: "/track",
       },
       {
         Component: About,

@@ -1,5 +1,10 @@
 import { baseApi } from "@/redux/api/baseApi";
-import type { ICreateParcel, IParcel, IResponse } from "@/types";
+import type {
+  ICreateParcel,
+  IParcel,
+  IParcelTrackData,
+  IResponse,
+} from "@/types";
 
 const parcelApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -11,7 +16,13 @@ const parcelApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["SenderParcels"],
     }),
+    trackParcel: builder.query<IResponse<IParcelTrackData>, string>({
+      query: (trackId) => ({
+        url: `/parcels/track/${trackId}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useCrateParcelMutation } = parcelApi;
+export const { useCrateParcelMutation, useTrackParcelQuery } = parcelApi;

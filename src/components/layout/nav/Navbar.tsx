@@ -19,6 +19,7 @@ import logoImg from "@/assets/logo.png";
 const navigationLinks = [
   { href: "/", label: "Home" },
   { href: "/features", label: "Features" },
+  { href: "/track", label: "Track" },
   { href: "/about", label: "About" },
   { href: "/faq", label: "Faq" },
   { href: "/contact", label: "Contact" },

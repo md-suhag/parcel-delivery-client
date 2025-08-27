@@ -40,3 +40,8 @@ export interface IUpdateParcel {
   id: string;
   status: string;
 }
+
+export type IParcelTrackData = Pick<
+  IParcel,
+  "_id" | "receiver" | "isBlocked" | "statusLogs"
+>;
