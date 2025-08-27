@@ -17,7 +17,7 @@ const ChargesSection = () => {
         {/* Charges Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {/* Regular Parcel */}
-          <Card className="shadow-lg hover:shadow-xl transition-shadow">
+          <Card className=" hover:shadow-xl transition-shadow">
             <CardHeader>
               <h3 className="text-xl font-semibold text-center">
                 Regular Parcel
@@ -39,7 +39,7 @@ const ChargesSection = () => {
           </Card>
 
           {/* Document Parcel */}
-          <Card className="shadow-lg hover:shadow-xl transition-shadow">
+          <Card className=" hover:shadow-xl transition-shadow">
             <CardHeader>
               <h3 className="text-xl font-semibold text-center">
                 Document Parcel
