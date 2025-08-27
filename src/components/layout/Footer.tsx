@@ -33,6 +33,8 @@ const bottomLinks = [
   { text: "Terms and Conditions", url: "#" },
   { text: "Privacy Policy", url: "#" },
 ];
+
+import logo from "@/assets/logo.png";
 export default function Footer() {
   return (
     <section className="py-5 ">
@@ -40,8 +42,11 @@ export default function Footer() {
         <footer>
           <div className="grid grid-cols-2 gap-8 md:grid-cols-5 lg:grid-cols-5">
             <div className="col-span-2 mb-8 lg:mb-0">
-              <div className="flex items-center gap-2 lg:justify-start text-2xl font-bold">
-                <Link to="/"> Parcel Delivery</Link>
+              <div className="flex items-center gap-2 lg:justify-start text-xl font-bold">
+                <img src={logo} className="w-12 " alt="logo" />
+                <Link to="/">
+                  Parcel <span className="text-primary">Delivery</span>
+                </Link>
               </div>
               <p className="mt-2 text-accent-foreground ">{tagline}</p>
             </div>
