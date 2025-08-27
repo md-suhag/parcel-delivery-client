@@ -20,10 +20,10 @@ A MERN stack web application for managing and tracking parcel deliveries. The sy
 
 - Admin Controls – Manage users, parcels, and monitor delivery performance.
 
-### [Live Demo](https://parcel-delivery-system-client.vercel.app)
+### [Live Demo](https://parcel-delivery-client-five.vercel.app/)
 
 ```bash
-https://parcel-delivery-system-client.vercel.app
+https://parcel-delivery-client-five.vercel.app
 ```
 
 ---
