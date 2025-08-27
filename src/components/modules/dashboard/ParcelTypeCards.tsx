@@ -2,10 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Package, FileText } from "lucide-react";
 import type { ITotalParcelByParcelType } from "@/types";
 
-enum ParcelType {
-  DOCUMENT = "DOCUMENT",
-  REGULAR = "REGULAR",
-}
+type ParcelType = "DOCUMENT" | "REGULAR";
 
 interface IProps {
   typeInfo: ITotalParcelByParcelType[];
@@ -14,13 +11,13 @@ interface IProps {
 
 const getTypeStyles = (type: ParcelType) => {
   switch (type) {
-    case ParcelType.DOCUMENT:
+    case "DOCUMENT":
       return {
         color: "text-blue-400",
 
         icon: <FileText className="w-6 h-6" />,
       };
-    case ParcelType.REGULAR:
+    case "REGULAR":
       return {
         color: "text-green-400",
 

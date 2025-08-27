@@ -13,19 +13,19 @@ import {
 } from "@/components/ui/chart";
 import type { ITotalParcelByStatus } from "@/types";
 
-enum Status {
-  REQUESTED = "REQUESTED",
-  ASSIGNED = "ASSIGNED",
-  PICKED = "PICKED",
-  IN_TRANSIT = "IN_TRANSIT",
-  DELIVERED = "DELIVERED",
-  CANCELLED = "CANCELLED",
-  RETURNED = "RETURNED",
-}
+const Status = {
+  REQUESTED: "REQUESTED",
+  ASSIGNED: "ASSIGNED",
+  PICKED: "PICKED",
+  IN_TRANSIT: "IN_TRANSIT",
+  DELIVERED: "DELIVERED",
+  CANCELLED: "CANCELLED",
+  RETURNED: "RETURNED",
+};
 
 export const description = "Parcel status distribution";
 
-const getStatusStyles = (status: Status) => {
+const getStatusStyles = (status: string) => {
   switch (status) {
     case Status.REQUESTED:
       return { color: "#60a5fa" };
@@ -88,7 +88,7 @@ export default function ParcelStatusPieChart({
   const chartData = statusInfo.map((item) => ({
     status: item.status,
     count: item.count,
-    fill: getStatusStyles(item.status as Status).color,
+    fill: getStatusStyles(item.status).color,
   }));
 
   return (

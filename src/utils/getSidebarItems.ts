@@ -4,7 +4,7 @@ import { receiverSidebarItems } from "@/routes/receiverSidebarItem";
 import { senderSidebarItems } from "@/routes/senderSidebarItems";
 import type { TRole } from "@/types";
 
-export const getSidebarItems = (userRole: TRole) => {
+export const getSidebarItems = (userRole: TRole | undefined) => {
   switch (userRole) {
     case role.admin:
       return [...adminSidebarItems];

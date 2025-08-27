@@ -1,6 +1,8 @@
-import GetSenderParcels from "@/pages/Dashboard/Sender/GetSenderParcels";
-import type { ISidebarItem } from "@/types";
 import { lazy } from "react";
+import type { ISidebarItem } from "@/types";
+const GetSenderParcels = lazy(
+  () => import("@/pages/Dashboard/Sender/GetSenderParcels")
+);
 const Analytics = lazy(() => import("@/pages/Dashboard/Sender/Analytics"));
 const CreateParcel = lazy(
   () => import("@/pages/Dashboard/Sender/CreateParcel")

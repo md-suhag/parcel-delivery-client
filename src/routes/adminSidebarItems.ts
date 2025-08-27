@@ -1,9 +1,13 @@
-import AllParcels from "@/pages/Dashboard/Admin/AllParcels";
-import AllUsers from "@/pages/Dashboard/Admin/AllUsers";
-import CreateParcel from "@/pages/Dashboard/Sender/CreateParcel";
-import GetSenderParcels from "@/pages/Dashboard/Sender/GetSenderParcels";
-import type { ISidebarItem } from "@/types";
 import { lazy } from "react";
+const AllParcels = lazy(() => import("@/pages/Dashboard/Admin/AllParcels"));
+const AllUsers = lazy(() => import("@/pages/Dashboard/Admin/AllUsers"));
+const CreateParcel = lazy(
+  () => import("@/pages/Dashboard/Sender/CreateParcel")
+);
+const GetSenderParcels = lazy(
+  () => import("@/pages/Dashboard/Sender/GetSenderParcels")
+);
+import type { ISidebarItem } from "@/types";
 const Analytics = lazy(() => import("@/pages/Dashboard/Admin/Analytics"));
 
 export const adminSidebarItems: ISidebarItem[] = [

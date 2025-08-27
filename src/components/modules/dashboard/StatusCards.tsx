@@ -10,55 +10,45 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { ITotalParcelByStatus } from "@/types";
 
-enum Status {
-  REQUESTED = "REQUESTED",
-  ASSIGNED = "ASSIGNED",
-  PICKED = "PICKED",
-  IN_TRANSIT = "IN_TRANSIT",
-  DELIVERED = "DELIVERED",
-  CANCELLED = "CANCELLED",
-  RETURNED = "RETURNED",
-}
-
 const getStatusStyles = (status: string) => {
   switch (status) {
-    case Status.REQUESTED:
+    case "REQUESTED":
       return {
         color: "text-blue-400",
         bgColor: "bg-blue-200",
         icon: <MapPin className="w-6 h-6" />,
       };
-    case Status.ASSIGNED:
+    case "ASSIGNED":
       return {
         color: "text-purple-400",
         bgColor: "bg-purple-200",
         icon: <Clock className="w-6 h-6" />,
       };
-    case Status.PICKED:
+    case "PICKED":
       return {
         color: "text-orange-400",
         bgColor: "bg-orange-200",
         icon: <Package className="w-6 h-6" />,
       };
-    case Status.IN_TRANSIT:
+    case "IN_TRANSIT":
       return {
         color: "text-yellow-600",
         bgColor: "bg-yellow-200",
         icon: <Truck className="w-6 h-6" />,
       };
-    case Status.DELIVERED:
+    case "DELIVERED":
       return {
         color: "text-green-400",
         bgColor: "bg-green-200",
         icon: <CheckCircle className="w-6 h-6" />,
       };
-    case Status.CANCELLED:
+    case "CANCELLED":
       return {
         color: "text-red-400",
         bgColor: "bg-red-200",
         icon: <XCircle className="w-6 h-6" />,
       };
-    case Status.RETURNED:
+    case "RETURNED":
       return {
         color: "text-gray-400",
         bgColor: "bg-gray-200",

@@ -1,5 +1,4 @@
 import { CreateParcelForm } from "@/components/modules/parcel/CreateParcelForm";
-import React from "react";
 
 const CreateParcel = () => {
   return (

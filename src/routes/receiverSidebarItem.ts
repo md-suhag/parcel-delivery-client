@@ -1,6 +1,8 @@
-import ReceivedParcel from "@/pages/Dashboard/Receiver/ReceivedParcel";
-import type { ISidebarItem } from "@/types";
 import { lazy } from "react";
+import type { ISidebarItem } from "@/types";
+const ReceivedParcel = lazy(
+  () => import("@/pages/Dashboard/Receiver/ReceivedParcel")
+);
 const Analytics = lazy(() => import("@/pages/Dashboard/Receiver/Analytics"));
 const IncommingParcel = lazy(
   () => import("@/pages/Dashboard/Receiver/IncommingParcel")
