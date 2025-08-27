@@ -1,69 +1,173 @@
-# React + TypeScript + Vite
+# Parcel Delivery system
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introduction
 
-Currently, two official plugins are available:
+This is a modern, scalable, and high-performance Parcel delivery platform designed to provide a seamless parcel delivery experience for sender, receiver etc .
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Project Description
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+A MERN stack web application for managing and tracking parcel deliveries. The system allows senders, receivers, and admins to interact seamlessly with features like:
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Send & Track Parcels – Create delivery requests and track parcels in real-time.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- Role-based Access – Separate dashboards for Sender, Receiver, and Admin.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Parcel Status Updates – Live status logs from Requested → Delivered.
+
+- Secure Authentication – JWT with HTTP-only cookies for safe login sessions.
+
+- Admin Controls – Manage users, parcels, and monitor delivery performance.
+
+### [Live Demo](https://parcel-delivery-system-client.vercel.app)
+
+```bash
+https://parcel-delivery-system-client.vercel.app
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Technology Stack
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### **Frontend**
+
+- Typescript
+- React.js
+- Redux Toolkit
+- Shadcn UI
+- Tailwind CSS
+
+### **Backend**
+
+- Typescript
+- Node.js & Express.js
+- MongoDB & Mongoose
+- JWT (Authentication & Authorization)
+
+---
+
+## Installation Guide
+
+Follow these steps to set up locally.
+
+### **Prerequisites**
+
+- Node.js installed
+- Code editor (e.g., VS Code)
+
+---
+
+### **Frontend Setup**
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/md-suhag/parcel-delivery-client.git
+   ```
+
+2. **Navigate to the project folder**
+
+   ```bash
+   cd parcel-delivery-client
+   ```
+
+3. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+4. **Create environment variables**  
+   Create a `.env` file in the frontend root directory and add:
+
+   ```env
+   VITE_BASE_URL=your_backend_base_url   # e.g., http://localhost:5000/api/v1
+   ```
+
+5. **Run the frontend**
+   ```bash
+   npm run dev
+   ```
+
+---
+
+### **Backend Setup**
+
+6. **Clone the backend repository**
+
+   ```bash
+   git clone https://github.com/md-suhag/parcel-delivery-server.git
+   ```
+
+7. **Navigate to the server directory**
+
+   ```bash
+   cd parcel-delivery-server
+   ```
+
+8. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+9. **Create environment variables**  
+   Create a `.env` file in the server root directory and add:
+
+```markdown
+FRONTEND_URL= your fronted url
+PORT=5000
+DB_URL= your database url
+NODE_ENV= your env mode
+
+BCRYPT_SALT_ROUND= any salt round number like 10, 12, 8
+
+JWT_ACCESS_SECRET= your access secret
+JWT_ACCESS_EXPIRES= 1h
+JWT_REFRESH_SECRET= your refresh secret
+JWT_REFRESH_EXPIRES= 30d
+
+ADMIN_PHONE= your admin phone
+ADMIN_EMAIL= your admin email
+ADMIN_PASSWORD= your admin password
+ADMIN_ADDRESS= your admin address
+
+EXPRESS_SESSION_SECRET= your session secret
 ```
+
+10. **Run the backend**
+    ```bash
+    npm run dev
+    ```
+
+---
+
+### **Access the Application**
+
+Once both frontend and backend are running, open:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## Demo credentials
+
+admin phone: 01711223344 <br>
+admin password: 1234Super@
+
+<br>
+sender phone: 01701020304 <br>
+sender password: Test123#
+
+<br>
+receiver phone: 01766758301 <br>
+receiver password: 123456@A
+
+---
+
+## Thank You
+
+Happy shopping & coding! 💻
