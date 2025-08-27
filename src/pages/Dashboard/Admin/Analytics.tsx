@@ -4,6 +4,7 @@ import StatusCards from "@/components/modules/dashboard/StatusCards";
 
 import { Skeleton } from "@/components/ui/skeleton";
 import ParcelTypeCards from "@/components/modules/dashboard/ParcelTypeCards";
+import ParcelStatusPicChart from "@/components/modules/dashboard/ParcelStatusPieChart";
 
 export default function Analytics() {
   const { data, isLoading } = useParcelStatsQuery(undefined);
@@ -26,6 +27,7 @@ export default function Analytics() {
         typeInfo={data!.data.totalParcelByParcelType}
         total={data!.data.totalParcel}
       />
+      <ParcelStatusPicChart statusInfo={data!.data.totalParcelByStatus} />
     </section>
   );
 }
