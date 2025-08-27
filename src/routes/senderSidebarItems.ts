@@ -26,7 +26,7 @@ export const senderSidebarItems: ISidebarItem[] = [
         component: CreateParcel,
       },
       {
-        title: "Get All Parcels",
+        title: "My Parcels",
         url: "/dashboard/sender/parcels",
         component: GetSenderParcels,
       },
