@@ -216,8 +216,12 @@ const RegisterForm = ({
               )}
             />
 
-            <Button type="submit" className="w-full">
-              Register
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={form.formState.isSubmitting}
+            >
+              {form.formState.isSubmitting ? "Registering..." : "Register"}
             </Button>
           </form>
         </Form>

@@ -158,11 +158,9 @@ http://localhost:5173
 admin phone: 01711223344 <br>
 admin password: 1234Super@
 
-<br>
 sender phone: 01701020304 <br>
 sender password: Test123#
 
-<br>
 receiver phone: 01766758301 <br>
 receiver password: 123456@A
 

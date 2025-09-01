@@ -40,6 +40,24 @@ export function LoginForm({
     },
   });
   const [login] = useLoginMutation();
+
+  type loginFormValues = z.infer<typeof loginSchema>;
+  // Demo credentials
+  const demoAccounts: Record<string, loginFormValues> = {
+    sender: { phone: "01701020304", password: "Test123#" },
+    receiver: { phone: "01766758301", password: "123456@A" },
+    admin: { phone: "01711223344", password: "1234Super@" },
+  };
+
+  const fillDemoCredentials = (role: string) => {
+    const creds = demoAccounts[role];
+    if (creds) {
+      form.setValue("phone", creds.phone);
+      form.setValue("password", creds.password);
+      toast.info(`Demo ${role} credentials filled!`);
+    }
+  };
+
   const onSubmit = async (data: z.infer<typeof loginSchema>) => {
     try {
       const res = await login(data).unwrap();
@@ -73,6 +91,33 @@ export function LoginForm({
       <div className="">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+            <div>
+              <p className="text-center  mb-1">Demo credentials</p>
+
+              <div className="flex  flex-wrap gap-1 sm:gap-3 justify-center">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => fillDemoCredentials("sender")}
+                >
+                  Sender
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => fillDemoCredentials("receiver")}
+                >
+                  Receiver
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => fillDemoCredentials("admin")}
+                >
+                  Admin
+                </Button>
+              </div>
+            </div>
             <FormField
               control={form.control}
               name="phone"
@@ -106,8 +151,12 @@ export function LoginForm({
               )}
             />
 
-            <Button type="submit" className="w-full">
-              Login
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={form.formState.isSubmitting}
+            >
+              {form.formState.isSubmitting ? "Logging..." : " Login"}
             </Button>
           </form>
         </Form>
